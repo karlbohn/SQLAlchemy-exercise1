@@ -20,7 +20,14 @@
                 id="content">
             </textarea>
         </div>
-
+        <div>
+            {% for tag in tags %}
+            <div>
+                <input type="checkbox" value="{{ tag.id }}" id="tag_{{ tag.id }}">
+                <label for="tag_{{ tag.id }}">{{ tag.name }}</label>
+            </div>
+            {% endfor %}
+        </div>
         <div>
             <button formaction="/users/{{ user.id }}" formmethod="GET" class="btn btn-info">Cancel</button>
             <button type="submit" formaction="/users/{{ user.id }}/posts/new" formmethod="POST" class="btn btn-success">Add</button>
